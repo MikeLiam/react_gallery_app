@@ -1,10 +1,12 @@
 import React from 'react';
 
 const NoPhoto = props => (
-  <li className='not-found'>
-    <h3>No Results Found</h3>
-    <p>You search did not return any results. Please try again.</p>
-  </li>
+  <div className="cartel">
+    <div className='not-found dead-end'>
+      <div className="bar"></div>
+    </div>
+    <h3>You hit a Dead End</h3>
+  </div>
 );
 
 export default NoPhoto;

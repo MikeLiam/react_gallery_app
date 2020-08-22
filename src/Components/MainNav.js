@@ -8,8 +8,8 @@ const MainNav = () => (
             <ul >
                 <li><NavLink to="/gallery/yamahatracer" >Yamaha Tracer</NavLink></li>
                 <li><NavLink to="/gallery/kawasakiversys" >Kawasaki Versys</NavLink></li>
-                <li><NavLink to="/gallery/bmwgs">BMW GS</NavLink></li>
-                <li><NavLink to="/gallery/ducatimultistrada">Ducati</NavLink></li>
+                <li><NavLink to="/gallery/bmwgs">BMW<br></br> GS</NavLink></li>
+                <li><NavLink to="/gallery/ducatimultistrada">Ducati Multistrada</NavLink></li>
             </ul>    
         </nav>
     </div>

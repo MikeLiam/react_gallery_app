@@ -48,14 +48,22 @@ input {
 .main-nav li {
   width: 100%;
   margin-bottom: 1em;
+  
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 5px #666;
+  border-radius: 3px;
+  margin: auto;
 }
 
 .main-nav a {
   display: block;
-  background: #438bbd;
   border-radius: 3px;
   padding: 5px;
-  color: #fff;
+  background: #fff;
+  border: solid 5px #fff;
+  background-color: rgb(12, 100, 172);
+
+  color: #fff
 }
 
 .main-nav .active,
@@ -274,10 +282,67 @@ Modal
 }
 
 
-/* Not found */
+/* Not results */
 
-.photo-container .not-found {
+.cartel {
+  margin: auto;
+}
+.not-found {
+  box-sizing: border-box;
+  position:relative;
+  margin: auto;
+	width: 100px;
+	height: 100px;
+  box-shadow: 0 0 3px #666;
+  border-radius: 3px;
+  margin-bottom:2em;
+}
+.dead-end {
+	background: #fff;
+  border: solid 5px #fff;
+  background-color: rgb(12, 100, 172);
+}
+
+.dead-end:after {
+    content:'';
+    display:block;
+    position:absolute;
+    top:65%;
+    left:25%;
+    transform: rotate(90deg);
+    width:48px;
+    border-top:solid 15px #fff;
+  }
+  .dead-end .bar{
+    content:'';
+    display:block;
+    position:absolute;
+    top:30%;
+    left:25%;
+    width:48px;
+    border-top:solid 15px red;
+  }
+/* Not found */
+.e-404 {
   width: 100%;
+  margin-top: 100px;
+}
+
+.sign {
+  box-sizing: border-box;
+  position:relative;
+	width: 300px;
+	height: auto;
+  box-shadow: 0 0 20px 10px #666;
+  border-radius: 3px;
+  margin: auto;
+}
+
+.inside {
+	background: #fff;
+  border: solid 5px #fff;
+  background-color: rgb(12, 100, 172);
+  color: #fff
 }
 
 @media only screen and (max-width: 767px)  {
