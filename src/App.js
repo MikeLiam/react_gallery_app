@@ -12,14 +12,22 @@ import SearchForm from './Components/SearchForm';
 import MainNav from './Components/MainNav';
 import PhotoContainer from './Components/PhotoContainer';
 import FourOuFour from './Components/FourOuFour'
-
-
+import FrontImage from './Components/FrontImage'
 
 class App extends Component {
 
   
   static contextType = ReactGalleryAppContext;
+  constructor(props) {
+    super(props);
+    this.state = {    
+      frontImage: false,
+      image: "",
+      imageId: ""
+    };
+    }
   
+
   componentDidMount() {
      this.context.searchContainer.forEach( search => this.context.actions.onSearch(search.topic));
      if (this.props.history.length > 2) {
@@ -31,8 +39,44 @@ class App extends Component {
       }
     }
   }
+  
+
+ 
+handleImage = (target,show, action, id) => {
+  console.log(action)
+  let src =""
+    if (action !== "open") {
+      console.log("if no open --> ", id)
+      const liImage = document.getElementById(`${id}`);
+      if (action === "prev") {
+        console.log(liImage)
+          const prevLiImage = liImage.previousElementSibling;
+          if (prevLiImage !== null) {
+            src = prevLiImage.querySelector('img').src
+            id = prevLiImage.id;
+          } else {
+            show = false;
+          }
+        } else if (action === "next") {
+          const nextLiImage = liImage.nextElementSibling;
+          if (nextLiImage !== null) {
+            src = nextLiImage.querySelector('img').src;
+            id = nextLiImage.id;
+          } else {
+            show = false;
+          }
+      }
+    } else {
+      console.log("else = open target src--> ", id)
+      src = target.src
+    }
+
+    this.setState({frontImage: show, image: (show ? src : ""), imageId: (show ? id : "")})
+   }
 
   render() {
+    
+    
     return (
       <div className="container" >
         <SearchForm />
@@ -43,12 +87,15 @@ class App extends Component {
                 : (
                   <Switch>
                     <Route exact path="/" render={ () => <Redirect to="/gallery/yamahatracer"/>}/>
-                    <Route path="/gallery/:topic" render={ (props) => <PhotoContainer topic={props.match.params.topic} /> }/>
+                    <Route path="/gallery/:topic" render={ (props) => <PhotoContainer topic={props.match.params.topic} handlePhoto={this.handleImage}/> }/>
                     <Route component={FourOuFour} />
                   </Switch>
                   )
                 }
-            
+
+                { this.state.frontImage && <FrontImage src={this.state.image} id={this.state.imageId} handleImage={this.handleImage}/>}
+
+        
       </div>
     );
   }

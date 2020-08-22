@@ -46,6 +46,7 @@ export class Provider extends Component {
     this.setState({loading})
   }
 
+
   performSearch = (query) => {
     const index = this.state.searchContainer.findIndex(search => search.topic.split(" ").join("") === query.split(" ").join(""));
 
@@ -93,9 +94,11 @@ export class Provider extends Component {
           {
             searchContainer: this.state.searchContainer,
             loading: this.state.loading,
+            frontImage: this.frontImage,
+            image: this.image,
             actions: {
               onSearch: this.performSearch,
-              loading: this.handleLoading
+              loading: this.handleLoading,
             }
           }
         } > {

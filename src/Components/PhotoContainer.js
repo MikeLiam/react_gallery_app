@@ -5,15 +5,17 @@ import {Consumer} from '../Context';
 import Photo from './Photo';
 import NoPhoto from './NoPhoto'
 
+
 const PhotoContainer = (props) =>  { 
 
   return(
-    <div className="photo-container">
+    <div>
+      <div className="photo-container">
           <h2>Results</h2>
           <ul>
             <Consumer>
                 { ({searchContainer}) => {
-                 let topic = props.topic;
+                  let topic = props.topic;
                   let component;
                   let photos
                   let index = searchContainer.findIndex(navLink => navLink.topic.split(" ").join("") === topic.split(" ").join(""));
@@ -23,25 +25,30 @@ const PhotoContainer = (props) =>  {
                     photos = searchContainer[index].photos;
                   }
                   if (photos.length > 0) {
-                    component = photos.map(photo => 
-                      <Photo 
-                        farm={photo.farm}
-                        secret={photo.secret}
-                        server={photo.server}
-                        id={photo.id}
-                        key={photo.id}/>
-                    )
+                      component = photos.map( photo => (
+                        <Photo
+                            farm={photo.farm}
+                            secret={photo.secret}
+                            server={photo.server}
+                            id={photo.id}
+                            key={photo.id}
+                            handlePhoto={ props.handlePhoto }/>
+                      ));
                   } else {
                         component = <NoPhoto />
-                      }
+                  }
                     return component
 
-                }}
+                }
+                }
           </Consumer>
           </ul> 
       </div>
+          
+    </div>
   );
-}
+              }       
+
 
 export default PhotoContainer;
 
