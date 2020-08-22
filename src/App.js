@@ -13,6 +13,7 @@ import MainNav from './Components/MainNav';
 import PhotoContainer from './Components/PhotoContainer';
 import FourOuFour from './Components/FourOuFour'
 import FrontImage from './Components/FrontImage'
+import Loading from './Components/Loading'
 
 class App extends Component {
 
@@ -83,7 +84,7 @@ handleImage = (target,show, action, id) => {
         <MainNav />
               {
                 this.context.loading 
-                ? (<p>Loading...</p>)
+                ? (<Loading />)
                 : (
                   <Switch>
                     <Route exact path="/" render={ () => <Redirect to="/gallery/yamahatracer"/>}/>

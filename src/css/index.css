@@ -110,10 +110,7 @@ input {
   transition: transform 1.25s;
   z-index: 3; 
   position:absolute;
-  /* top:50vw; */
   margin-left:auto;
-  /* margin-left:-50px;
-  margin-top:-50px; */
   
   -moz-transition:all 2s;
   -webkit-transition:all 2s;
@@ -201,6 +198,83 @@ Modal
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
+
+/* Loading */
+
+.loading {
+  position: relative;
+  width: 300px;
+  height: auto;
+  margin: auto;
+}
+
+.loading h3 {
+  padding: 10px;
+  animation: showingtext 1.5s normal infinite;
+}
+
+@keyframes showingtext {
+  0%  {opacity: 0}
+  50% {opacity: 1}
+  100%{opacity: 0}
+}
+
+.moto {
+  position: absolute;
+  left: 300px;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transform: scale(-1,1);
+
+  animation: goesandcomes 2.5s ease infinite;
+}
+
+@keyframes goesandcomes {
+
+  0% {
+    left: -100px;
+  }
+  20% {
+    opacity: 1;
+  }
+  
+  40% {
+    opacity: 0;
+    left: 350px;
+
+    transform: scale(-1,1);
+  }
+  
+  50% {
+    opacity: 0;
+    transform: scale(1,1);
+    transform: rotate(45deg);
+    left: 350px;
+  }
+
+  60% {
+    opacity:1;
+  }
+  80% {
+    left: -100px;
+    transform: scale(1,1);
+    transform: rotate(45deg);
+
+  }
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(-1,1);
+    left: -100px;
+  }
+}
+
+
+/* Not found */
 
 .photo-container .not-found {
   width: 100%;

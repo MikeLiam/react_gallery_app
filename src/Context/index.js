@@ -26,6 +26,7 @@ export class Provider extends Component {
         photos: []
       }
     ],
+    // change to false inicial descomentar componentdidmount app.js
     loading: false
   };
 
