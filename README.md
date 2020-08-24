@@ -15,6 +15,7 @@ If the search has no result:
 And if we go to a url that doesn't exist:
 ![Not found](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/NotFound_y3ilgv.png)
 Also has configurated with a loading spinner:
+
 ![Loading](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/loading_aphbqn.gif)
 
 The project has been configured to use [netlify](https://www.netlify.com) to deploy a build production of the app and have it in a live link.
@@ -23,21 +24,22 @@ The project has been configured to use [netlify](https://www.netlify.com) to dep
 ### Style Customization:
 ---
 * Font-family 
-    - [Google Fonts Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=May+the+Code+be+with+you&preview.text_type=custom)
-    - [Google Fonts Satisfy](https://fonts.google.com/specimen/Satisfy?preview.text=May+the+Code+be+with+you&preview.text_type=custom&sidebar.open=true)
-* Title index page style.
-* Thumbnail personalization.
-* Projects thumbnail animation at index page.
-* Links personalization.
-* Background image. [Created by rawpixel.com - www.freepik.es](https://www.freepik.es/vectores/fondo)
-* Logo at about page and favicon.
-* Side-bar and title-bar transparent background.
+    - [Lobster](https://fonts.google.com/specimen/Lobster)
+* Page background image, centered both axis, no-repeat, fixed and cover for better landing of components. Photo by [Karsten Würth](https://unsplash.com/@karsten_wuerth?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+* Search button style.
+* NavLinks style european (spain) highway signal alike.
+* Presenting LI elements (images) as user scroll down/up.
+* Modal for image viewer with close and previous/next image buttons.
+* Full CSS No results compoment Dead End signal alike.
+* Not Found error 404 compoment highway signal alike.
+* Loading CSS spinner with moto image and text.
+* Logo as favicon.
 
 #### Installation for local use
 ---
-Install the dependencies and start the server.
+Install the dependencies and start app.
 ```sh
-$ cd static_node_and_express_site
+$ cd react_gallery_app
 $ npm install
 $ npm start
 ```
