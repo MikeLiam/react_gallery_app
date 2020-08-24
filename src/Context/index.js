@@ -27,7 +27,8 @@ export class Provider extends Component {
       }
     ],
     // change to false inicial descomentar componentdidmount app.js
-    loading: false
+    loading: false,
+    noResults: false
   };
 
   // prepareChangeState = (index, response, elementState, topic) => {
@@ -57,37 +58,45 @@ export class Provider extends Component {
       }, () => {
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
           .then(response => {
-            if (index !== -1) {
-              this.setState(prevState => {
-                let container = [...prevState.searchContainer];
-                let collection = prevState.searchContainer[index];
-                collection.photos = response.data.photos.photo;
-                container.splice(index, 1, collection);
-                return {
-                  searchContainer: container,
-                  loading: false
-                }
-              });
-            } else {
-              this.setState(prevState => {
-                let collection = {};
-                collection.photos = response.data.photos.photo;
-                if (query) {
-                  collection.topic = query
-                }
+            const data = response.data.photos.photo
+            if(data.length > 0) {
+              if (index !== -1) {
+                this.setState(prevState => {
+                  let container = [...prevState.searchContainer];
+                  let collection = prevState.searchContainer[index];
+                  collection.photos = data;
+                  container.splice(index, 1, collection);
+                  return {
+                    searchContainer: container,
+                    loading: false, noResults: false
+                  }
+                });
+              } else {
+                this.setState(prevState => {
+                  let collection = {};
+                  collection.photos = data;
+                  if (query) {
+                    collection.topic = query
+                  }
 
-                return {
-                  searchContainer: [...prevState.searchContainer, collection],
-                  loading: false
-                }
-              });
-            }
+                  return {
+                    searchContainer: [...prevState.searchContainer, collection],
+                    loading: false, noResults: false
+                  }
+                });
+                
+              }} else {
+                this.setState(prevState => {
+                  return {loading:false, noResults: true}
+                })
+              }
           })
           .catch(error => console.log('Error fetching and parsing data', error));
 
       })
 
     }
+
   }
     render() {
       return ( 
@@ -95,8 +104,7 @@ export class Provider extends Component {
           {
             searchContainer: this.state.searchContainer,
             loading: this.state.loading,
-            frontImage: this.frontImage,
-            image: this.image,
+            noResults: this.state.noResults,
             actions: {
               onSearch: this.performSearch,
               loading: this.handleLoading,

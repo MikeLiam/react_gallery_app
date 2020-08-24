@@ -24,25 +24,33 @@ class App extends Component {
     this.state = {    
       frontImage: false,
       image: "",
-      imageId: ""
+      imageId: "",
+      listenHistory: false
     };
     }
   
-
-  componentDidMount() {
-     this.context.searchContainer.forEach( search => this.context.actions.onSearch(search.topic));
-     if (this.props.history.length > 2) {
-      const pathname = this.props.location.pathname.split('/');
-      if(pathname.findIndex(path => path === "gallery") === 1 ) {
-        const topic = pathname[2];
-        this.context.actions.loading(true)
-        this.context.actions.onSearch(topic);
-      }
+    updateSearchUrl() {
+      if (this.props.history.length > 2) {
+        const pathname = this.props.location.pathname.split('/');
+        if(pathname.findIndex(path => path === "gallery") === 1 ) {
+          // this.context.actions.loading(true)
+          const topic = pathname[2];
+          this.context.actions.onSearch(topic);
+        }
+      } 
     }
-  }
-  
 
- 
+    componentDidMount() {
+      this.context.searchContainer.forEach( search => this.context.actions.onSearch(search.topic));
+      if (!this.state.listenHistory) {
+        this.updateSearchUrl();
+        this.setState({listenHistory: true})
+      }
+      this.props.history.listen((location, action) => {
+        this.updateSearchUrl()
+      });
+  }
+
 handleImage = (target,show, action, id) => {
   console.log(action)
   let src =""
@@ -51,21 +59,19 @@ handleImage = (target,show, action, id) => {
       const liImage = document.getElementById(`${id}`);
       if (action === "prev") {
         console.log(liImage)
-          const prevLiImage = liImage.previousElementSibling;
-          if (prevLiImage !== null) {
+          let prevLiImage = liImage.previousElementSibling;
+          if (prevLiImage === null) {
+            prevLiImage = liImage.parentNode.lastElementChild
+          } 
             src = prevLiImage.querySelector('img').src
             id = prevLiImage.id;
-          } else {
-            show = false;
-          }
         } else if (action === "next") {
-          const nextLiImage = liImage.nextElementSibling;
-          if (nextLiImage !== null) {
+          let nextLiImage = liImage.nextElementSibling;
+          if (nextLiImage === null) {
+            nextLiImage = liImage.parentNode.firstElementChild
+          } 
             src = nextLiImage.querySelector('img').src;
             id = nextLiImage.id;
-          } else {
-            show = false;
-          }
       }
     } else {
       console.log("else = open target src--> ", id)
@@ -88,7 +94,7 @@ handleImage = (target,show, action, id) => {
                 : (
                   <Switch>
                     <Route exact path="/" render={ () => <Redirect to="/gallery/yamahatracer"/>}/>
-                    <Route path="/gallery/:topic" render={ (props) => <PhotoContainer topic={props.match.params.topic} handlePhoto={this.handleImage}/> }/>
+                    <Route path="/gallery/:topic" render={ (props) => <PhotoContainer topic={props.match.params.topic}  handlePhoto={this.handleImage}/> }/>
                     <Route component={FourOuFour} />
                   </Switch>
                   )

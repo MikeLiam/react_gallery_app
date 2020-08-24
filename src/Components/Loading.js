@@ -5,7 +5,7 @@ const Loading = ( props ) => {
     return (
         <div className="loading">
             <img className="moto" src={Moto} alt="moto"/>
-            <h3>Loading...</h3>
+            <h2>Loading...</h2>
         </div>
     );
 }

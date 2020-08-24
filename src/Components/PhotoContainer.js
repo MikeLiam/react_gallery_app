@@ -4,6 +4,7 @@ import {Consumer} from '../Context';
 
 import Photo from './Photo';
 import NoPhoto from './NoPhoto'
+import Loading from './Loading';
 
 
 const PhotoContainer = (props) =>  { 
@@ -14,33 +15,29 @@ const PhotoContainer = (props) =>  {
           <h2>Results</h2>
           <ul>
             <Consumer>
-                { ({searchContainer}) => {
+                { ({searchContainer, noResults}) => {
                   let topic = props.topic;
-                  let component;
+                  let component ;
                   let photos
-                  let index = searchContainer.findIndex(navLink => navLink.topic.split(" ").join("") === topic.split(" ").join(""));
-                  if(index === -1) {
-                    photos = searchContainer[searchContainer.length-1].photos
-                  } else {
+                  let index
+                  
+                  index = searchContainer.findIndex(navLink => navLink.topic.split(" ").join("") === topic.split(" ").join(""));
+                  if(index !== -1) {
                     photos = searchContainer[index].photos;
-                  }
-                  if (photos.length > 0) {
-                      component = photos.map( photo => (
-                        <Photo
-                            farm={photo.farm}
-                            secret={photo.secret}
-                            server={photo.server}
-                            id={photo.id}
-                            key={photo.id}
-                            handlePhoto={ props.handlePhoto }/>
-                      ));
-                  } else {
-                        component = <NoPhoto />
-                  }
-                    return component
+                        component = photos.map( photo => (
+                          <Photo
+                              farm={photo.farm}
+                              secret={photo.secret}
+                              server={photo.server}
+                              id={photo.id}
+                              key={photo.id}
+                              handlePhoto={ props.handlePhoto }/>
+                        ));
+                        return component
+                  } 
 
-                }
-                }
+                  return noResults?  <NoPhoto /> : component
+                }}
           </Consumer>
           </ul> 
       </div>

@@ -1,13 +1,28 @@
+html { 
+  background: url(https://res.cloudinary.com/da3z5stec/image/upload/v1598270486/React%20Gallery%20App/karsten-wurth-rafblRbne3o-unsplash_vxh6sp_c3mxqg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  /* background-image: url(https://res.cloudinary.com/da3z5stec/image/upload/v1598268272/React%20Gallery%20App/road_wallpaper.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%; */
+  /* background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 5%, rgba(84,86,89,1) 100%);  */
 }
 
 h2 {
   font-size: 2em;
-  margin: 52px 0 40px;
+  margin: 20px 0 20px;
   text-transform: capitalize;
+  font-family: 'Lobster', cursive;
 }
 
 ul {
@@ -27,11 +42,12 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: rgb(12, 100, 172);
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
   cursor: pointer;
+  
 }
 
 input {
@@ -50,7 +66,7 @@ input {
   margin-bottom: 1em;
   
   box-sizing: border-box;
-  box-shadow: 0 0 10px 5px #666;
+  box-shadow: 0 0 7px 3px #666;
   border-radius: 3px;
   margin: auto;
 }
@@ -60,16 +76,21 @@ input {
   border-radius: 3px;
   padding: 5px;
   background: #fff;
-  border: solid 5px #fff;
+  border: solid 3px #fff;
   background-color: rgb(12, 100, 172);
 
   color: #fff
 }
 
 .main-nav .active,
-.main-nav a:hover,
-.search-form button:hover {
-  background-color: #275270;
+.main-nav a:hover {
+  border: solid 3px #fff;
+  background-color: #fff;
+  color: rgb(12, 100, 172)
+}
+
+.search-form button:hover{
+  background-color: grey;
 }
 
 .photo-container ul {
@@ -87,6 +108,7 @@ input {
   margin-bottom: 20px;
 }
 .slide-in{
+
   float: bottom;
   margin-left: 20px;
   opacity: 0;
@@ -210,14 +232,15 @@ Modal
 /* Loading */
 
 .loading {
+  padding-top: 30px;
   position: relative;
   width: 300px;
   height: auto;
   margin: auto;
 }
 
-.loading h3 {
-  padding: 10px;
+.loading h2 {
+  font-family: 'Lobster', cursive;
   animation: showingtext 1.5s normal infinite;
 }
 
@@ -230,8 +253,8 @@ Modal
 .moto {
   position: absolute;
   left: 300px;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   opacity: 0;
   transform: scale(-1,1);
 
