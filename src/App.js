@@ -33,7 +33,6 @@ class App extends Component {
       if (this.props.history.length > 2) {
         const pathname = this.props.location.pathname.split('/');
         if(pathname.findIndex(path => path === "gallery") === 1 ) {
-          // this.context.actions.loading(true)
           const topic = pathname[2];
           this.context.actions.onSearch(topic);
         }
@@ -52,13 +51,10 @@ class App extends Component {
   }
 
 handleImage = (target,show, action, id) => {
-  console.log(action)
   let src =""
     if (action !== "open") {
-      console.log("if no open --> ", id)
       const liImage = document.getElementById(`${id}`);
       if (action === "prev") {
-        console.log(liImage)
           let prevLiImage = liImage.previousElementSibling;
           if (prevLiImage === null) {
             prevLiImage = liImage.parentNode.lastElementChild
@@ -74,7 +70,6 @@ handleImage = (target,show, action, id) => {
             id = nextLiImage.id;
       }
     } else {
-      console.log("else = open target src--> ", id)
       src = target.src
     }
 

@@ -9,7 +9,6 @@ class FrontImage extends Component {
             let show = true;
             let action;
             let id = this.props.id
-            console.log("Front Image click button --> ", id)
             if (button.id === "modal-prev-btn") {
                 action = "prev";
             } else if (button.id === "modal-next-btn") {
