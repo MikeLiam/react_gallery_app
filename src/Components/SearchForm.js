@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// https://reactrouter.com/web/api/withRouter
 import { withRouter } from "react-router-dom";
 import { Consumer } from '../Context';
 

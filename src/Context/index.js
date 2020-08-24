@@ -26,23 +26,10 @@ export class Provider extends Component {
         photos: []
       }
     ],
-    // change to false inicial descomentar componentdidmount app.js
     loading: false,
     noResults: false
   };
 
-  // prepareChangeState = (index, response, elementState, topic) => {
-  //   let container = [...elementState];
-  //   let collection = {
-  //     ...container[index]
-  //   };
-  //   collection.photos = response.data.photos.photo;
-  //   if (topic) {
-  //     collection.topic = topic
-  //   }
-  //   container[index] = collection;
-  //   return container;
-  // }
 
   handleLoading = (loading) => {
     this.setState({loading})

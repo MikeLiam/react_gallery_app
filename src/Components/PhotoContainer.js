@@ -4,7 +4,6 @@ import {Consumer} from '../Context';
 
 import Photo from './Photo';
 import NoPhoto from './NoPhoto'
-import Loading from './Loading';
 
 
 const PhotoContainer = (props) =>  { 

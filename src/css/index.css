@@ -10,12 +10,6 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
-  /* background-image: url(https://res.cloudinary.com/da3z5stec/image/upload/v1598268272/React%20Gallery%20App/road_wallpaper.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100%; */
-  /* background: rgb(255,255,255);
-  background: radial-gradient(circle, rgba(255,255,255,1) 5%, rgba(84,86,89,1) 100%);  */
 }
 
 h2 {
