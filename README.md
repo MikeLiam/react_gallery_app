@@ -1,3 +1,51 @@
+# React Gallery App
+
+## Seventh Treehouse techdegree project. Unit-07
+---
+Image gallery app where search images relationated with a _topic_ given by the user or select one of four _predefined searchs_.
+
+Created with [**React js**](https://github.com/reactjs) and consuming [**flickr**](https://www.flickr.com/services/api/) API using [**create_react_app**](https://github.com/facebook/create-react-app), [**react_router**](https://github.com/ReactTraining/react-router) and [**react-intersection-observer**](https://github.com/thebuilder/react-intersection-observer#readme), first look to landing page:
+![Landing page](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/landingpage_m2bqgo.png)
+At this point can select a link nav of a predefined search as landing page or do a new search:
+![search](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/Search_x3xjhb.png)
+Given the images you can click to acces to the image viewer and see all images one by one: 
+![Image viewer](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/viewer_msh2iv.png)
+If the search has no result: 
+![No results](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/noResults_it04hq.png)
+And if we go to a url that doesn't exist:
+![Not found](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/NotFound_y3ilgv.png)
+Also has configurated with a loading spinner:
+![Loading](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/loading_aphbqn.gif)
+
+The project has been configured to use [netlify](https://www.netlify.com) to deploy a build production of the app and have it in a live link.
+> [MikelIam Full Stack Developer](https://mikeliamreactgalleryapp.netlify.app/)
+
+### Style Customization:
+---
+* Font-family 
+    - [Google Fonts Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=May+the+Code+be+with+you&preview.text_type=custom)
+    - [Google Fonts Satisfy](https://fonts.google.com/specimen/Satisfy?preview.text=May+the+Code+be+with+you&preview.text_type=custom&sidebar.open=true)
+* Title index page style.
+* Thumbnail personalization.
+* Projects thumbnail animation at index page.
+* Links personalization.
+* Background image. [Created by rawpixel.com - www.freepik.es](https://www.freepik.es/vectores/fondo)
+* Logo at about page and favicon.
+* Side-bar and title-bar transparent background.
+
+#### Installation for local use
+---
+Install the dependencies and start the server.
+```sh
+$ cd static_node_and_express_site
+$ npm install
+$ npm start
+```
+
+![MikelIam](https://res.cloudinary.com/da3z5stec/image/upload/v1597004412/Portfolio/logo_about_pemkn6.jpg)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
