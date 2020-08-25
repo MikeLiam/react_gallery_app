@@ -1,15 +1,23 @@
 import React from 'react';
 import { InView } from "react-intersection-observer";
 
+/**
+ * 
+ * @param {Object} param0 props passed by
+ */
 const Photo = ( { farm, server, id, secret, handlePhoto } ) => {
-  
-  const thresholdArray = steps => Array(steps + 1)
-  .fill(0)
-  .map((_, index) => index / steps || 0)
- 
+  // Array with sampling range to show/vanish at intersection of viewport and <li> images. Range from 0 to 1 divied in steps fractions
+  const thresholdArray = (steps) => Array(steps + 1)
+                                          .fill(0)
+                                          .map((_, index) => index / steps || 0)
+ // Help manage if scroll down or up
  let previousY = 0
  let previousRatio = 0
  
+ /**
+  * Handle showing of vanishing <li> elements if go in or out of viewport
+  * @param {Object} entries entries <Li> elements intersecting with viewport
+  */
  const handleIntersect = entries => {
    entries.forEach(entry => {
      const currentY = entry.boundingClientRect.y
@@ -34,7 +42,7 @@ const Photo = ( { farm, server, id, secret, handlePhoto } ) => {
          target.className= "slide-in active"
        }
      }
- 
+     // Set current y axis as previous for future calls
      previousY = currentY
      previousRatio = currentRatio
    })

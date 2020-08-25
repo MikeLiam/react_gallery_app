@@ -1,7 +1,9 @@
 import React from 'react';
 import {  NavLink } from 'react-router-dom';
 
-
+/**
+ * MainNav component for NavLinks with predefined topics
+ */
 const MainNav = () => (
     <div>
         <nav className="main-nav">

@@ -13,15 +13,17 @@ const PhotoContainer = (props) =>  {
       <div className="photo-container">
           <h2>Results</h2>
           <ul>
+            {/* Context consumer for data info and noresult tracing */}
             <Consumer>
                 { ({searchContainer, noResults}) => {
                   let topic = props.topic;
                   let component ;
                   let photos
                   let index
-                  
+                  // search if topic was searched 
                   index = searchContainer.findIndex(navLink => navLink.topic.split(" ").join("") === topic.split(" ").join(""));
                   if(index !== -1) {
+                    // For every photo on topic
                     photos = searchContainer[index].photos;
                         component = photos.map( photo => (
                           <Photo
@@ -34,7 +36,7 @@ const PhotoContainer = (props) =>  {
                         ));
                         return component
                   } 
-
+                  // if no results from fetching show NoPhoto component, else show component set with photos
                   return noResults?  <NoPhoto /> : component
                 }}
           </Consumer>
@@ -43,36 +45,7 @@ const PhotoContainer = (props) =>  {
           
     </div>
   );
-              }       
+}       
 
 
 export default PhotoContainer;
-
-// const PhotoContainer = () => { 
-//   const results = props.data;
-//   let photos;
-//   if (results.length > 0) {
-//     photos = results.map(photo => 
-//       <Photo 
-//         farm={photo.farm}
-//         secret={photo.secret}
-//         server={photo.server}
-//         id={photo.id}
-//         key={photo.id}/>
-//     )
-//   } else {
-//     photos = <NoPhoto />
-//   }
-  
-//   return(
-//     <Consumer>
-//       <div className="photo-container">
-//           <h2>Results</h2>
-//           <ul>
-//           {/* <Gif /> */}
-//           {photos}
-//           </ul> 
-//       </div>
-//     </Consumer>
-//   );
-// }

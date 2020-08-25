@@ -7,23 +7,41 @@ class SearchForm extends Component {
     state = {
         searchText: ''
       }
-      
+      /**
+       * Set state for searching value
+       * @param {Objet} e input onchange event
+       */
       onSearchChange = (e) => {
         this.setState({ searchText: e.target.value });
       }
       
+      /**
+       * 
+       * @param {Object} e form on submit event
+       * @param {Function} onSearch context onsearch function
+       */
       handleSubmit = (e, onSearch) => {
+        // get history for pushing new url
         const { history} = this.props;
+        // prevent refresh
         e.preventDefault();
+        // get search value
         let query = this.query.value;
+        // fetch data
         onSearch(query);
+        // push new url in history
         let path = `/gallery/${query.split(" ").join("")}`;
         history.push(path);
+        // reset input text
         e.currentTarget.reset();
       }
       
+      /**
+       * Render function
+       */
       render() {  
         return (
+          // Context consumer to use fetching function
           <Consumer>
             {
               ({actions}) => (

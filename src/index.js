@@ -7,8 +7,11 @@ import { HashRouter } from 'react-router-dom';
 import { Provider } from './Context';
 
 ReactDOM.render(
+  // HashRouter cos Netlify deployment
   <HashRouter>
+    {/* Context provider */}
     <Provider>
+      {/* Main component */}
       <App />
     </Provider>
   </HashRouter>,

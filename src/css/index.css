@@ -1,3 +1,5 @@
+
+/* Background image */
 html { 
   background: url(https://res.cloudinary.com/da3z5stec/image/upload/v1598270486/React%20Gallery%20App/karsten-wurth-rafblRbne3o-unsplash_vxh6sp_c3mxqg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -5,20 +7,21 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-
+/* --- */
 body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
 }
 
+/* Results and loading titles */
 h2 {
   font-size: 2em;
   margin: 20px 0 20px;
   text-transform: capitalize;
   font-family: 'Lobster', cursive;
 }
-
+/* --- */
 ul {
   list-style-type: none;
   padding-left: 0;
@@ -55,10 +58,10 @@ input {
   outline: none;
 }
 
+/* NavLinks highway signs */
 .main-nav li {
   width: 100%;
   margin-bottom: 1em;
-  
   box-sizing: border-box;
   box-shadow: 0 0 7px 3px #666;
   border-radius: 3px;
@@ -82,7 +85,7 @@ input {
   background-color: #fff;
   color: rgb(12, 100, 172)
 }
-
+/* --- */
 .search-form button:hover{
   background-color: grey;
 }
@@ -101,8 +104,9 @@ input {
   overflow: hidden;
   margin-bottom: 20px;
 }
-.slide-in{
 
+/* Show row images animation */
+.slide-in{
   float: bottom;
   margin-left: 20px;
   opacity: 0;
@@ -118,6 +122,7 @@ input {
 .vanish-up {
   transform: translateY(-30%) scale(0.7);
 }
+/* --- */
 
 .photo-container ul img {
   width: 100%;
@@ -127,20 +132,6 @@ input {
 
 .photo-container li:hover img {
   transform: scale(1.65);
-}
-/* onClick image */
-.take-front {
-  transform: scale(3);
-  transition: transform 1.25s;
-  z-index: 3; 
-  position:absolute;
-  margin-left:auto;
-  
-  -moz-transition:all 2s;
-  -webkit-transition:all 2s;
-  -o-transition:all 2s;
-  transition:all 2s;
-  border:1px solid red;
 }
 
 /* ===================================== 
@@ -222,6 +213,7 @@ Modal
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
+/* --- */
 
 /* Loading */
 
@@ -297,7 +289,7 @@ Modal
     left: -100px;
   }
 }
-
+/* --- */
 
 /* Not results */
 
@@ -339,6 +331,8 @@ Modal
     width:48px;
     border-top:solid 15px red;
   }
+/* --- */
+
 /* Not found */
 .e-404 {
   width: 100%;
@@ -361,6 +355,7 @@ Modal
   background-color: rgb(12, 100, 172);
   color: #fff
 }
+/* --- */
 
 @media only screen and (max-width: 767px)  {
   body {
