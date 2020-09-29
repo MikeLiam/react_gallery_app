@@ -19,7 +19,7 @@ Also has configurated with a loading spinner:
 ![Loading](https://res.cloudinary.com/da3z5stec/image/upload/v1598274773/React%20Gallery%20App/loading_aphbqn.gif)
 
 The project has been configured to use [netlify](https://www.netlify.com) to deploy a build production of the app and have it in a live link.
-> [MikelIam Full Stack Developer](https://mikeliamreactgalleryapp.netlify.app/)
+> [MikelIam React Gallery App](https://mikeliamreactgalleryapp.netlify.app/)
 
 ### Style Customization:
 ---
