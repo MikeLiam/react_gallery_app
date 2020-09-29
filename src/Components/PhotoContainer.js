@@ -13,17 +13,16 @@ const PhotoContainer = (props) =>  {
       <div className="photo-container">
           <h2>Results</h2>
           <ul>
-            {/* Context consumer for data info and noresult tracing */}
             <Consumer>
                 { ({searchContainer, noResults}) => {
                   let topic = props.topic;
                   let component ;
                   let photos
                   let index
-                  // search if topic was searched 
+                  
                   index = searchContainer.findIndex(navLink => navLink.topic.split(" ").join("") === topic.split(" ").join(""));
                   if(index !== -1) {
-                    // For every photo on topic
+                    
                     photos = searchContainer[index].photos;
                         component = photos.map( photo => (
                           <Photo
@@ -36,7 +35,6 @@ const PhotoContainer = (props) =>  {
                         ));
                         return component
                   } 
-                  // if no results from fetching show NoPhoto component, else show component set with photos
                   return noResults?  <NoPhoto /> : component
                 }}
           </Consumer>

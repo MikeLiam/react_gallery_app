@@ -41,7 +41,6 @@ class SearchForm extends Component {
        */
       render() {  
         return (
-          // Context consumer to use fetching function
           <Consumer>
             {
               ({actions}) => (

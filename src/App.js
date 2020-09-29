@@ -20,8 +20,8 @@ class App extends Component {
   // Set context App for calls outside render() function
   static contextType = ReactGalleryAppContext;
   // Set state for image viewer modal and history tracing
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {    
       frontImage: false,
       image: "",
@@ -110,25 +110,22 @@ class App extends Component {
   render() {
     return (
       <div className="container" >
-        {/* Search form component */}
+
         <SearchForm />
-        {/* Main nav for NavLinks predefined topics */}
+
         <MainNav />
-              {/* If loading show spinner, else router */
+              {
                 this.context.loading 
                 ? (<Loading />)
                 : (
                   <Switch>
-                    {/* Landing page go navlink predefined topic  */}
-                    <Route exact path="/" render={ () => <Redirect to="/gallery/yamahatracer"/>}/>
-                    {/* Routing with parameter :topic for search o locate at context provider. Basic path /gallery. Passing function to handle in open image action from main app */}
+                    
+                    <Route exact path="/react_gallery_app" render={ () => <Redirect to="/gallery/yamahatracer"/>}/>
                     <Route path="/gallery/:topic" render={ (props) => <PhotoContainer topic={props.match.params.topic}  handlePhoto={this.handleImage}/> }/>
-                    {/* Rest of paths go Not Found component */}
                     <Route component={FourOuFour} />
                   </Switch>
                   )
                 }
-                {/* if has to show image viewer modal --> compoment to show it passing image src and id, and function to handle from main app */}
                 { this.state.frontImage && <FrontImage src={this.state.image} id={this.state.imageId} handleImage={this.handleImage}/>}
 
         
