@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './css/index.css';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from './Context';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter basename={process.env.PUBLIC_URL}>
     <Provider>
       <App />
     </Provider>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );
 

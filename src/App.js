@@ -120,7 +120,7 @@ class App extends Component {
                 : (
                   <Switch>
                     
-                    <Route exact path="/react_gallery_app" render={ () => <Redirect to="/gallery/yamahatracer"/>}/>
+                    <Route exact path="/" render={ () => <Redirect to="/gallery/yamahatracer"/>}/>
                     <Route path="/gallery/:topic" render={ (props) => <PhotoContainer topic={props.match.params.topic}  handlePhoto={this.handleImage}/> }/>
                     <Route component={FourOuFour} />
                   </Switch>
